@@ -6,6 +6,10 @@ COPY . /app
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+# Crear las carpetas necesarias
+RUN mkdir -p data models
+
+# Ejecutar el preprocesamiento y entrenamiento
 RUN python pipelines/data_processing.py
 RUN python pipelines/train_models.py
 
